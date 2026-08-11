@@ -1,0 +1,13 @@
+/* Seletor universal para resetar as propriedades de todos os elementos */
+* {
+    /* Define a margem de todos os elementos como zero */
+    margin: 0;
+    /* Define o espaçamento interno de todos os elementos como zero */
+    padding: 0;
+    /* Configura o dimensionamento do box model para incluir borda e padding */
+    box-sizing: border-box;
+    /* Remove decorações de texto padrão como sublinhados em links */
+    text-decoration: none;
+    /* Remove marcadores de listas padrão */
+    list-style: none;
+}
