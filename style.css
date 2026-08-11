@@ -1,13 +1,39 @@
-/* Seletor universal para resetar as propriedades de todos os elementos */
-* {
-    /* Define a margem de todos os elementos como zero */
-    margin: 0;
-    /* Define o espaçamento interno de todos os elementos como zero */
-    padding: 0;
-    /* Configura o dimensionamento do box model para incluir borda e padding */
-    box-sizing: border-box;
-    /* Remove decorações de texto padrão como sublinhados em links */
-    text-decoration: none;
-    /* Remove marcadores de listas padrão */
-    list-style: none;
+* {   /* Seletor universal para resetar as propriedades de todos os elementos */
+    margin: 0;   /* Define a margem de todos os elementos como zero */
+    padding: 0;   /* Define o espaçamento interno de todos os elementos como zero */
+    box-sizing: border-box;   /* Configura o dimensionamento do box model para incluir borda e padding */
+    text-decoration: none;   /* Remove decorações de texto padrão como sublinhados em links */
+    list-style: none;   /* Remove marcadores de listas padrão */
+}
+
+header {
+    display: flex;   /* define a exibição como flexbox */
+    flex-direction: row;   /* define a direção como linha */
+    justify-content: space-between;   /* distribui o espaço entre os elementos */
+    align-items: center;   /* centraliza os elementos verticalmente */
+    padding-bottom: 30px;
+
+    .nav {
+        display: flex;   /* define a exibição como flexbox */
+        flex-direction: row;   /* define a direção como linha */
+        justify-content: space-between;   /* distribui o espaço entre os elementos */
+        align-items: center;   /* centraliza os elementos verticalmente */
+        font-size: 18px;   /* define o tamanho da fonte */
+        font-weight: 600;   /* define a espessura da fonte */
+        gap: 12px;   /* define o espaçamento entre os elementos */
+    }
+
+    .nav li {
+        margin-left: 10px;   /* define a margem esquerda */
+        font-size: 20px;   /* define o tamanho da fonte */
+        font-weight: 600;   /* define a espessura da fonte */
+        cursor: pointer;   /* define o cursor como ponteiro */
+    }
+
+    .nav a {
+        color: black;
+        font-size: 20px;
+        padding-right: 12px;
+        cursor: pointer;
+    }
 }
