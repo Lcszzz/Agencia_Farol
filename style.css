@@ -211,7 +211,7 @@
         .hero { /* Início do bloco de estilo da seção hero */
             position: relative; /* Habilita posicionamento relativo para conter o pseudoelemento absoluto de feixe */
             overflow: hidden; /* Oculta qualquer transbordamento de elementos (como o feixe de luz giratório) */
-            background: linear-gradient(rgba(18, 60, 66, 0.90), rgba(18, 60, 66, 0.95)), url('assets/water_bg.png'); /* Aplica uma sobreposição escura sobre a imagem de água no fundo */
+            background: linear-gradient(rgba(18, 60, 66, 0.96), rgba(18, 60, 66, 0.96)), url('assets/water_bg.png'); /* Aplica sobreposição escura da cor petróleo original do site sobre a imagem de fundo */
             background-size: cover; /* Faz com que a imagem de fundo preencha toda a área do hero */
             background-position: center; /* Centraliza a imagem de fundo na seção */
             color: var(--branco); /* Define a cor padrão do texto interno como branco puro */
