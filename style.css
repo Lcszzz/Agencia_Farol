@@ -201,7 +201,7 @@
         }
 
         @media (max-width:860px) {
- /* Define styles alternativos para telas menores de 860px */
+            /* Define styles alternativos para telas menores de 860px */
             .nav-links { /* Seletor para o menu de links em telas pequenas */
                 display: none; /* Oculta a lista de links do menu de navegação */
             }
@@ -212,8 +212,9 @@
             position: relative; /* Habilita posicionamento relativo para conter o pseudoelemento absoluto de feixe */
             overflow: hidden; /* Oculta qualquer transbordamento de elementos (como o feixe de luz giratório) */
             background: linear-gradient(rgba(18, 60, 66, 0.96), rgba(18, 60, 66, 0.96)), url('assets/water_bg.png'); /* Aplica sobreposição escura da cor petróleo original do site sobre a imagem de fundo */
-            background-size: cover; /* Faz com que a imagem de fundo preencha toda a área do hero */
-            background-position: center; /* Centraliza a imagem de fundo na seção */
+            background-size: 105%; /* Define o tamanho da imagem de fundo ligeiramente maior para viabilizar a animação de deriva */
+            background-position: 50% 50%; /* Define a posição inicial centralizada da imagem de fundo */
+            animation: marDeriva 28s ease-in-out infinite; /* Associa a animação de deriva lenta e contínua do fundo do mar */
             color: var(--branco); /* Define a cor padrão do texto interno como branco puro */
             padding: 120px 0 110px; /* Adiciona preenchimento interno vertical de 120px no topo e 110px na base */
             isolation: isolate; /* Cria um novo contexto de isolamento de pilha de renderização */
@@ -238,17 +239,30 @@
             z-index: 0; /* Posiciona a camada atrás dos textos e elementos principais do hero */
         }
 
-        @keyframes girar {
- /* Define a animação "girar" para fazer uma rotação completa de 360 graus */
+        @keyframes girar { /* Define a animação "girar" para fazer uma rotação completa de 360 graus */
             to { /* Ponto final da animação */
                 transform: translateX(-50%) rotate(275deg); /* Completa o giro até 360 graus mantendo a centralização em -50% */
             }
         }
 
-        @media (prefers-reduced-motion:reduce) {
- /* Desativa animações caso o usuário prefira reduzir movimentos no sistema */
+        @keyframes marDeriva { /* Início da declaração da animação de deriva lenta da água */
+            0% { /* Ponto inicial e final do loop */
+                background-position: 50% 50%; /* Posição centralizada */
+            }
+            50% { /* Ponto médio da animação */
+                background-position: 52% 48%; /* Desloca o fundo sutilmente simulando movimento da maré */
+            }
+            100% { /* Retorno da animação */
+                background-position: 50% 50%; /* Retorna para a posição centralizada */
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) { /* Desativa animações caso o usuário prefira reduzir movimentos no sistema */
             .hero::before { /* Seletor para o feixe na acessibilidade */
                 animation: none; /* Remove a animação do feixe de luz */
+            }
+            .hero { /* Seletor para a seção hero na acessibilidade */
+                animation: none; /* Remove a animação de deriva do fundo do mar */
             }
         }
 
