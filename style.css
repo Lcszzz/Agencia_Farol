@@ -264,6 +264,9 @@
             .hero { /* Seletor para a seção hero na acessibilidade */
                 animation: none; /* Remove a animação de deriva do fundo do mar */
             }
+            .parallax > use { /* Seletor para as ondas na acessibilidade */
+                animation: none; /* Remove a animação de movimento das ondas */
+            }
         }
 
         .hero-inner { /* Início do bloco de estilo para o contêiner interno do hero */
@@ -698,4 +701,66 @@
             width: 100%; /* Faz o bloco ocupar 100% de largura para quebrar de linha e ir para a base */
             text-align: center; /* Centraliza horizontalmente o texto dos direitos autorais */
             margin-top: 30px; /* Adiciona margem externa superior de 30px para afastar dos elementos acima */
+        }
+
+        /* ---------- Ondas Animadas ---------- */
+        .hero-waves { /* Contêiner das ondas na base do hero */
+            position: absolute; /* Posiciona o bloco de forma absoluta em relação ao hero */
+            bottom: 0; /* Alinha o contêiner no limite inferior do hero */
+            left: 0; /* Alinha o contêiner no limite esquerdo */
+            width: 100%; /* Faz as ondas ocuparem toda a largura da tela */
+            height: 40px; /* Define altura fixa de 40px para as ondas */
+            min-height: 40px; /* Define altura mínima de 40px */
+            max-height: 80px; /* Define altura máxima de 80px */
+            z-index: 5; /* Posiciona as ondas acima do plano de fundo e abaixo do conteúdo */
+        }
+
+        .waves { /* Gráfico SVG das ondas */
+            position: relative; /* Define posicionamento relativo para o SVG */
+            width: 100%; /* Ocupa 100% da largura do contêiner */
+            height: 40px; /* Define altura de 40px para o SVG */
+            margin-bottom: -7px; /* Ajuste para eliminar qualquer espaçamento residual inferior */
+        }
+
+        .parallax > use { /* Camadas de ondas animadas */
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; /* Associa a animação de movimento com aceleração suave e loop contínuo */
+        }
+
+        .parallax > use:nth-child(1) { /* Primeira camada de onda (mais distante e lenta) */
+            animation-delay: -2s; /* Define um atraso de inicialização negativo de 2s */
+            animation-duration: 7s; /* Define duração rápida de 7s para a primeira onda */
+        }
+
+        .parallax > use:nth-child(2) { /* Segunda camada de onda */
+            animation-delay: -3s; /* Define um atraso negativo de 3s */
+            animation-duration: 10s; /* Define duração de 10s */
+        }
+
+        .parallax > use:nth-child(3) { /* Terceira camada de onda */
+            animation-delay: -4s; /* Define um atraso de 4s */
+            animation-duration: 13s; /* Define duração de 13s */
+        }
+
+        .parallax > use:nth-child(4) { /* Quarta camada de onda (mais próxima e sólida) */
+            animation-delay: -5s; /* Define um atraso de 5s */
+            animation-duration: 20s; /* Define duração de 20s para movimento calmo e realista */
+        }
+
+        @keyframes move-forever { /* Declaração da animação horizontal das ondas */
+            0% { /* Ponto de partida */
+                transform: translate3d(-90px, 0, 0); /* Desloca a onda horizontalmente para a esquerda em 90px */
+            }
+            100% { /* Ponto final */
+                transform: translate3d(85px, 0, 0); /* Desloca a onda horizontalmente para a direita em 85px */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .waves { /* Ajuste do SVG das ondas em telas menores */
+                height: 30px; /* Reduz a altura do SVG para 30px */
+                min-height: 30px; /* Reduz a altura mínima para 30px */
+            }
+            .hero-waves { /* Ajuste do contêiner de ondas em telas menores */
+                height: 30px; /* Reduz a altura do contêiner para 30px */
+            }
         }
