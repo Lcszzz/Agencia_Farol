@@ -211,7 +211,7 @@
         .hero { /* Início do bloco de estilo da seção hero */
             position: relative; /* Habilita posicionamento relativo para conter o pseudoelemento absoluto de feixe */
             overflow: hidden; /* Oculta qualquer transbordamento de elementos (como o feixe de luz giratório) */
-            background: linear-gradient(rgba(18, 60, 66, 0.96), rgba(18, 60, 66, 0.96)), url('assets/water_bg.png'); /* Aplica sobreposição escura da cor petróleo original do site sobre a imagem de fundo */
+            background: linear-gradient(rgba(18, 60, 66, 0.96), rgba(18, 60, 66, 0.90)), url('assets/ChatGPT.png'); /* Aplica sobreposição escura da cor petróleo original do site sobre a imagem de fundo */
             background-size: 105%; /* Define o tamanho da imagem de fundo ligeiramente maior para viabilizar a animação de deriva */
             background-position: 50% 50%; /* Define a posição inicial centralizada da imagem de fundo */
             animation: marDeriva 28s ease-in-out infinite; /* Associa a animação de deriva lenta e contínua do fundo do mar */
@@ -235,7 +235,7 @@
                     transparent 360deg); /* Define o feixe de luz giratório usando um gradiente cônico */
             transform-origin: center; /* Define a origem de transformações (como rotação) no centro do elemento */
             transform: translateX(-50%) rotate(0deg); /* Centraliza o elemento horizontalmente com translateX(-50%) e define ângulo inicial de 0 */
-            animation: girar 12s linear infinite; /* Associa a animação de giro com duração de 12s, progressão linear e repetição infinita */
+            animation: girar 11s linear infinite; /* Associa a animação de giro com duração de 12s, progressão linear e repetição infinita */
             z-index: 0; /* Posiciona a camada atrás dos textos e elementos principais do hero */
         }
 
