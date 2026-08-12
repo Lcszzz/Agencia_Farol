@@ -1,43 +1,685 @@
-* {   /* Seletor universal para resetar as propriedades de todos os elementos */
-    margin: 0;   /* Define a margem de todos os elementos como zero */
-    padding: 0;   /* Define o espaçamento interno de todos os elementos como zero */
-    box-sizing: border-box;   /* Configura o dimensionamento do box model para incluir borda e padding */
-    text-decoration: none;   /* Remove decorações de texto padrão como sublinhados em links */
-    list-style: none;   /* Remove marcadores de listas padrão */
-}
+:root { /* Definição de variáveis de estilo globais acessadas em todo o CSS */
+            --petroleo: #123C42; /* Variável contendo o tom azul petróleo escuro principal */
+            --petroleo-soft: #4A6E74; /* Variável contendo o tom azul petróleo médio/suave */
+            --petroleo-mist: #9FC2C8; /* Variável contendo o tom azul petróleo claro/névoa */
+            --branco: #FFFFFF; /* Variável contendo a cor branca pura */
+            --dourado: #C9973A; /* Variável contendo a cor de destaque dourada */
+            --bg-light: #FAFAF8; /* Variável contendo a cor cinza-claro para o plano de fundo geral */
+            --hairline: #E2E2DC; /* Variável contendo a cor de borda e linha fina principal */
+            --hairline-2: #EFEFEA; /* Variável contendo a cor de borda e linha fina secundária mais clara */
+            --texto-suave: #8A8A82; /* Variável contendo a cor cinza-suave para textos secundários */
+        }
 
-header {
-    display: flex;   /* define a exibição como flexbox */
-    flex-direction: row;   /* define a direção como linha */
-    justify-content: space-between;   /* distribui o espaço entre os elementos */
-    align-items: center;   /* centraliza os elementos verticalmente */
-    padding-bottom: 30px;
+        * { /* Seletor universal para redefinir as propriedades de todos os elementos */
+            box-sizing: border-box; /* Configura a propriedade box-sizing como border-box para incluir bordas e preenchimentos na largura */
+            margin: 0; /* Zera a margem de todos os elementos */
+            padding: 0; /* Zera o preenchimento interno de todos os elementos */
+        }
 
-    .nav {
-        display: flex;   /* define a exibição como flexbox */
-        flex-direction: row;   /* define a direção como linha */
-        justify-content: space-between;   /* distribui o espaço entre os elementos */
-        align-items: center;   /* centraliza os elementos verticalmente */
-        font-size: 18px;   /* define o tamanho da fonte */
-        font-weight: 600;   /* define a espessura da fonte */
-        gap: 12px;   /* define o espaçamento entre os elementos */
-    }
+        html { /* Início do bloco de estilo do elemento html */
+            scroll-behavior: smooth; /* Configura comportamento de rolagem suave para links internos da página */
+        }
 
-    .nav li {
-        margin-left: 10px;   /* define a margem esquerda */
-        font-size: 20px;   /* define o tamanho da fonte */
-        font-weight: 600;   /* define a espessura da fonte */
-        cursor: pointer;   /* define o cursor como ponteiro */
-    }
+        body { /* Início do bloco de estilo do elemento body */
+            font-family: 'Outfit', -apple-system, sans-serif; /* Define as famílias de fontes preferenciais e de fallback da página */
+            font-weight: 300; /* Define a espessura da fonte padrão do texto como leve */
+            color: var(--petroleo); /* Aplica a variável de cor azul petróleo escuro como padrão para textos */
+            background: var(--bg-light); /* Aplica a variável de cor cinza-claro como fundo padrão do corpo */
+            line-height: 1.65; /* Define o espaçamento vertical entre linhas de texto do corpo */
+            -webkit-font-smoothing: antialiased; /* Melhora a renderização de fontes suavizadas em navegadores WebKit */
+        }
 
-    .nav a {
-        color: black;
-        font-size: 20px;
-        padding-right: 12px;
-        cursor: pointer;
+        img,
+        svg { /* Seletor para estilizar elementos de imagem e gráficos vetoriais (SVG) */
+            display: block; /* Define os elementos como exibição em bloco para remover espaçamentos inferiores indesejados */
+            max-width: 100%; /* Limita a largura máxima do elemento a 100% do contêiner pai para garantir responsividade */
+        }
+
+        a { /* Início da estilização dos elementos de link <a> */
+            color: inherit; /* Faz os links herdarem a cor do texto do elemento pai */
+            text-decoration: none; /* Remove o sublinhado padrão dos links */
+        }
+
+        .container { /* Início do bloco de estilo da classe contêiner principal */
+            max-width: 1080px; /* Limita a largura máxima do contêiner a 1080px */
+            margin: 0 auto; /* Centraliza o contêiner horizontalmente na tela */
+            padding: 0 40px; /* Adiciona preenchimento interno lateral de 40px */
+        }
+
+        @media (max-width:640px) {
+ /* Define regras de estilo alternativas para telas com largura máxima de 640px */
+            .container { /* Seletor para o contêiner em telas pequenas */
+                padding: 0 22px; /* Reduz o preenchimento interno lateral do contêiner para 22px */
+            }
+        }
+
+        /* ---------- Botões ---------- */
+        .btn { /* Início do bloco de estilo da classe de botão genérico */
+            display: inline-flex; /* Exibe o botão como bloco flexível em linha */
+            align-items: center; /* Alinha os itens do botão verticalmente ao centro */
+            gap: 10px; /* Define o espaçamento de 10px entre elementos internos (ícone e texto) */
+            font-family: 'Outfit', sans-serif; /* Define a fonte Outfit para os textos do botão */
+            font-weight: 400; /* Define a espessura da fonte como regular */
+            font-size: 15px; /* Define o tamanho da fonte como 15px */
+            letter-spacing: 0.2px; /* Adiciona espaçamento entre letras de 0.2px */
+            padding: 15px 30px; /* Adiciona preenchimento interno de 15px na vertical e 30px na horizontal */
+            border-radius: 999px; /* Arredonda totalmente as bordas do botão criando formato de pílula */
+            border: 1px solid transparent; /* Define uma borda inicial transparente para evitar quebras no hover */
+            cursor: pointer; /* Define o cursor como a mão de clique ao passar sobre o botão */
+            transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease; /* Adiciona transição suave para várias propriedades do botão */
+        }
+
+        .btn:hover { /* Estilo do botão ao passar o mouse */
+            transform: translateY(-3px); /* Move o botão levemente para cima em 1px no eixo Y */
+
+        }
+
+        .btn:active { /* Estilo do botão ao clicar */
+            transform: translateY(0); /* Retorna o botão para a posição original no eixo Y */
+        }
+
+        .btn-dourado { /* Início do bloco de estilo do botão dourado */
+            background: var(--dourado); /* Aplica a variável de cor dourada como fundo */
+            color: var(--petroleo); /* Aplica a variável de cor azul petróleo escuro para o texto */
+        }
+
+        .btn-dourado:hover { /* Estilo do botão dourado ao passar o mouse */
+            background: #dba94a; /* Altera o fundo para um tom dourado mais claro */
+        }
+
+        .btn-outline-claro { /* Início do bloco de estilo do botão de contorno claro */
+            border-color: rgba(255, 255, 255, 0.35); /* Define a cor da borda como branca semitransparente (35% opacidade) */
+            color: var(--branco); /* Aplica a variável de cor branca para o texto */
+              transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 0 7px rgba(255, 255, 255, 0.16);
+        }
+
+        .btn-outline-claro:hover { /* Estilo do botão de contorno claro ao passar o mouse */
+            border-color: var(--branco); /* Altera a cor da borda para branco sólido */
+
+        }
+
+        .btn-outline-escuro { /* Início do bloco de estilo do botão de contorno escuro */
+            border-color: var(--hairline); /* Define a cor da borda como hairline cinza */
+            color: var(--petroleo); /* Aplica a variável de cor azul petróleo escuro para o texto */
+        }
+
+        .btn-outline-escuro:hover { /* Estilo do botão de contorno escuro ao passar o mouse */
+            border-color: var(--petroleo); /* Altera a cor da borda para azul petróleo sólido */
+
+        }
+
+        /* ---------- Header ---------- */
+        header.nav { /* Início do bloco de estilo do cabeçalho com classe nav */
+            position: sticky; /* Fixa o cabeçalho no topo da tela durante a rolagem */
+            top: 0; /* Define a posição de fixação no topo absoluto */
+            z-index: 40; /* Garante que o cabeçalho fique acima do conteúdo da página com z-index 40 */
+            background: rgba(250, 250, 248, 0.7); /* Define o fundo como bege claro com opacidade de 88% */
+            backdrop-filter: blur(5px); /* Aplica efeito de desfoque de fundo no conteúdo sob o cabeçalho */
+            border-bottom: 1px solid var(--hairline); /* Adiciona uma borda inferior cinza sutil divisória */
+        }
 
 
-    }
 
-    
-}
+        .pulse {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: rgb(26, 173, 26);
+            border-radius: 50%;
+
+            animation: pulsar 1.5s infinite;
+        }
+
+        @keyframes pulsar {
+            0% {
+                transform: scale(1.1);
+                opacity: 1;
+
+            }
+
+            50% {
+                transform: scale(1.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .nav-inner { /* Início do bloco de estilo do contêiner interno do cabeçalho */
+            display: flex; /* Exibe os elementos internos usando layout flexbox */
+            align-items: center; /* Alinha os elementos verticalmente ao centro */
+            justify-content: space-between; /* Distribui os elementos nas extremidades laterais */
+            padding: 12px 0; /* Adiciona preenchimento interno vertical de 18px */
+        }
+
+        .brand { /* Início do bloco de estilo do contêiner da marca */
+            display: flex; /* Define o contêiner como flexbox */
+            align-items: center; /* Alinha o logotipo e o nome verticalmente ao centro */
+            gap: 12px; /* Adiciona espaçamento de 12px entre o SVG do logo e o texto */
+        }
+
+        .brand span { /* Início da estilização do texto do nome da marca */
+            font-size: 19px; /* Define o tamanho da fonte do nome como 19px */
+            font-weight: 400; /* Define a espessura da fonte como regular */
+            letter-spacing: 0.3px; /* Adiciona espaçamento entre letras de 0.3px */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
+
+        }
+
+        .nav-links { /* Início do bloco de estilo do menu de links */
+            display: flex; /* Organiza os links horizontalmente com flexbox */
+            align-items: center; /* Alinha os links verticalmente ao centro */
+            gap: 40px; /* Define espaçamento horizontal de 34px entre cada link */
+
+        }
+
+        .nav-links a { /* Início da estilização dos links internos do menu */
+            font-size: 14px; /* Define o tamanho da fonte dos links como 14px */
+            color: var(--petroleo-soft); /* Aplica a variável de cor azul petróleo suave */
+            font-weight: 400; /* Define a espessura da fonte como regular */
+        }
+
+        .nav-links a:hover { /* Estilo do link do menu ao passar o mouse */
+            color: var(--petroleo); /* Altera a cor do texto para azul petróleo escuro */
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.55);
+            transform: translateY(1px);
+        }
+
+        .nav-cta { /* Início do bloco de estilo do botão CTA do menu */
+            display: none; /* Oculta o botão CTA do menu por padrão em telas pequenas */
+        }
+
+        @media (min-width:860px) {
+ /* Define estilos alternativos para telas a partir de 860px */
+            .nav-cta { /* Seletor para o botão CTA em telas médias/grandes */
+                display: inline-flex; /* Exibe o botão CTA do menu como bloco flex em linha */
+            }
+        }
+
+        @media (max-width:860px) {
+ /* Define styles alternativos para telas menores de 860px */
+            .nav-links { /* Seletor para o menu de links em telas pequenas */
+                display: none; /* Oculta a lista de links do menu de navegação */
+            }
+        }
+
+        /* ---------- Hero ---------- */
+        .hero { /* Início do bloco de estilo da seção hero */
+            position: relative; /* Habilita posicionamento relativo para conter o pseudoelemento absoluto de feixe */
+            overflow: hidden; /* Oculta qualquer transbordamento de elementos (como o feixe de luz giratório) */
+            background: var(--petroleo); /* Define a cor de fundo padrão como azul petróleo escuro */
+            color: var(--branco); /* Define a cor padrão do texto interno como branco puro */
+            padding: 120px 0 110px; /* Adiciona preenchimento interno vertical de 120px no topo e 110px na base */
+            isolation: isolate; /* Cria um novo contexto de isolamento de pilha de renderização */
+        }
+
+        .hero::before { /* Início do bloco de estilo do pseudoelemento ::before (feixe de luz giratório) */
+            /* feixe de luz do farol varrendo o fundo — elemento de assinatura, dourado a <10% de opacidade da peça */
+            content: ""; /* Define conteúdo vazio necessário para exibição de pseudoelementos */
+            position: absolute; /* Posiciona o elemento de forma absoluta em relação à seção hero */
+            top: -40%; /* Desloca o elemento para cima em 40% da altura da seção */
+            left: 50%; /* Desloca o elemento para a direita em 50% da largura da seção */
+            width: 2600px; /* Define largura fixa de 2600px para formar um grande círculo de gradiente */
+            height: 2600px; /* Define altura fixa de 2600px para formar um grande círculo de gradiente */
+            background: conic-gradient(from -165deg,
+                    transparent 0deg,
+                    rgba(201, 151, 58, 0.65) 8deg,
+                    transparent 70deg,
+                    transparent 360deg); /* Define o feixe de luz giratório usando um gradiente cônico */
+            transform-origin: center; /* Define a origem de transformações (como rotação) no centro do elemento */
+            transform: translateX(-50%) rotate(0deg); /* Centraliza o elemento horizontalmente com translateX(-50%) e define ângulo inicial de 0 */
+            animation: girar 12s linear infinite; /* Associa a animação de giro com duração de 12s, progressão linear e repetição infinita */
+            z-index: 0; /* Posiciona a camada atrás dos textos e elementos principais do hero */
+        }
+
+        @keyframes girar {
+ /* Define a animação "girar" para fazer uma rotação completa de 360 graus */
+            to { /* Ponto final da animação */
+                transform: translateX(-50%) rotate(275deg); /* Completa o giro até 360 graus mantendo a centralização em -50% */
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+ /* Desativa animações caso o usuário prefira reduzir movimentos no sistema */
+            .hero::before { /* Seletor para o feixe na acessibilidade */
+                animation: none; /* Remove a animação do feixe de luz */
+            }
+        }
+
+        .hero-inner { /* Início do bloco de estilo para o contêiner interno do hero */
+            position: relative; /* Habilita posicionamento relativo */
+            z-index: 1; /* Garante que os textos fiquem sobrepostos acima do feixe de luz */
+            text-align: center; /* Centraliza todo o texto contido no bloco */
+        }
+
+        .hero .tag { /* Início do bloco de estilo da tag de localização superior */
+            display: inline-flex; /* Exibe a tag como bloco flex em linha */
+            align-items: center; /* Alinha o ponto dourado e o texto verticalmente ao centro */
+            gap: 9px; /* Define espaçamento de 9px entre o ponto e o texto */
+            font-size: 13px; /* Define tamanho de fonte de 13px */
+            letter-spacing: 0.8px; /* Adiciona espaçamento entre letras de 0.5px */
+            color: var(--petroleo-mist); /* Aplica a cor azul petróleo claro para a tag */
+            border: 1px solid rgba(159, 194, 200, 0.35); /* Cria borda fina azul-clara semitransparente ao redor da tag */
+            padding: 7px 17px; /* Adiciona preenchimento interno de 7px vertical e 16px horizontal */
+            border-radius: 999px; /* Arredonda totalmente as bordas estilo pílula */
+            margin-bottom: 34px; /* Adiciona margem externa inferior de 34px */
+        }
+
+        .hero .tag i { /* Início do bloco de estilo para a bolinha dourada na tag */
+            width: 6px; /* Define largura fixa de 6px */
+            height: 6px; /* Define altura fixa de 6px */
+            border-radius: 50%; /* Arredonda totalmente o elemento criando um círculo */
+            background: var(--); /* Aplica a variável de cor dourada de destaque como fundo */
+            display: inline-block; /* Exibe o elemento como bloco inline */
+        }
+
+        .hero h1 { /* Início do bloco de estilo para o título principal h1 */
+            font-weight: 300; /* Define a espessura da fonte como leve */
+            font-size: clamp(34px, 5.4vw, 60px); /* Define tamanho de fonte responsivo baseado na largura da tela */
+            letter-spacing: 0.2px; /* Adiciona espaçamento sutil entre as letras do título */
+            max-width: 820px; /* Limita a largura máxima do h1 em 820px */
+            margin: 0 auto 26px; /* Centraliza o título horizontalmente e adiciona margem inferior de 26px */
+        }
+
+        .hero h1 strong { /* Estilo do texto em negrito dentro de h1 */
+            font-weight: 500; /* Define espessura da fonte como média/semibold */
+            color: var(--branco); /* Aplica a variável de cor branca para a frase destacada */
+        }
+
+        .hero p.sub { /* Início do bloco de estilo do parágrafo de subtítulo */
+            font-size: 17px; /* Define o tamanho da fonte como 17px */
+            color: var(--petroleo-mist); /* Aplica a cor azul petróleo claro para menor contraste */
+            max-width: 520px; /* Limita a largura máxima do subtítulo em 520px */
+            margin: 0 auto 44px; /* Centraliza o parágrafo horizontalmente e adiciona margem inferior de 44px */
+        }
+
+        .hero-ctas { /* Início do bloco de estilo para os botões de ação do hero */
+            display: flex; /* Organiza os botões usando flexbox */
+            gap: 16px; /* Define espaçamento horizontal de 16px entre os botões */
+            justify-content: center; /* Centraliza os botões horizontalmente no bloco */
+            flex-wrap: wrap; /* Permite que os botões quebrem de linha em telas pequenas */
+            align-items: center; /* Centraliza os botões verticalmente no bloco */
+        }
+
+        .hero-icon { /* Início do bloco de estilo para o ícone de farol no hero */
+            margin: 0 auto 30px; /* Centraliza o ícone horizontalmente e adiciona margem inferior de 30px */
+            opacity: 0.95; /* Define a opacidade do ícone em 95% */
+        }
+
+        /* ---------- Seção núcleo ---------- */
+        .nucleo { /* Início do bloco de estilo da seção núcleo */
+            padding: 120px 0; /* Define preenchimento vertical interno de 120px */
+        }
+
+        .eyebrow { /* Início do bloco de estilo da etiqueta eyebrow */
+            font-size: 13px; /* Define tamanho de fonte de 13px */
+            font-weight: 500; /* Define espessura de fonte como média */
+            letter-spacing: 1.2px; /* Adiciona espaçamento entre letras de 1.2px */
+            text-transform: uppercase; /* Altera o texto para letras maiúsculas (caixa alta) */
+            color: var(--dourado); /* Aplica a variável de cor dourada de destaque */
+            margin-bottom: 18px; /* Adiciona margem externa inferior de 18px */
+        }
+
+        .nucleo-grid { /* Início do bloco de estilo para o grid da seção núcleo */
+            display: grid; /* Habilita o layout de grade */
+            grid-template-columns: 1.1fr 1fr; /* Define duas colunas com proporção de 1.1 e 1 */
+            gap: 70px; /* Define espaçamento de 70px entre as colunas da grade */
+            align-items: start; /* Alinha o conteúdo das colunas no topo do grid */
+        }
+
+        @media (max-width:860px) {
+ /* Define styles alternativos para telas de até 860px */
+            .nucleo-grid { /* Seletor para o grid em telas pequenas */
+                grid-template-columns: 1fr; /* Transforma a grade em coluna única */
+                gap: 50px; /* Reduz o espaçamento entre elementos para 50px */
+            }
+        }
+
+        .nucleo h2 { /* Início do bloco de estilo do título h2 da seção núcleo */
+            font-size: clamp(26px, 3.6vw, 38px); /* Aplica tamanho de fonte responsiva com clamp de 26px a 38px */
+            font-weight: 300; /* Define a espessura da fonte como leve */
+            line-height: 1.3; /* Ajusta a altura da linha do h2 para 1.3 */
+            max-width: 520px; /* Limita a largura máxima do título em 520px */
+        }
+
+        .nucleo h2 em { /* Estilo do texto under ênfase dentro de h2 */
+            font-style: normal; /* Remove a estilização em itálico padrão */
+            color: var(--dourado); /* Aplica a variável de cor dourada de destaque */
+        }
+
+        .voz { /* Início do bloco de estilo para o card comparativo de voz da marca */
+            border: 1px solid var(--hairline); /* Cria borda fina cinza ao redor do card */
+            border-radius: 14px; /* Arredonda os cantos do card com raio de 14px */
+            overflow: hidden; /* Oculta elementos que ultrapassarem os cantos arredondados */
+            background: var(--branco); /* Define fundo branco sólido para o card */
+        }
+
+        .voz-linha { /* Início do bloco de estilo para cada linha comparativa */
+            display: flex; /* Define o contêiner interno como flexbox */
+            gap: 16px; /* Adiciona espaçamento de 16px entre ícone/marca e texto */
+            align-items: flex-start; /* Alinha os itens flex ao topo da linha */
+            padding: 22px 26px; /* Adiciona preenchimento interno de 22px vertical e 26px horizontal */
+            font-size: 16px; /* Define tamanho de fonte de 16px para a linha */
+            border-bottom: 1px solid var(--hairline-2); /* Adiciona borda fina cinza-clara na base de cada linha */
+        }
+
+        .voz-linha:last-child { /* Estilo exclusivo para a última linha do card */
+            border-bottom: none; /* Remove a borda inferior para não sobrepor a base do card */
+        }
+
+        .voz-linha.nao { /* Estilo para a linha com exemplo de fala negativa */
+            color: var(--texto-suave); /* Aplica a cor cinza-suave para simular menos destaque no erro */
+        }
+
+        .voz-linha.nao span.marca { /* Estilo do ícone/marca negativa (✕) */
+            color: #A33; /* Aplica cor vermelha escura */
+        }
+
+        .voz-linha.sim span.marca { /* Estilo do ícone/marca positiva (✓) */
+            color: #2E7D5B; /* Aplica cor verde */
+        }
+
+        .voz-linha span.marca { /* Estilo geral dos ícones de marcação */
+            flex-shrink: 0; /* Impede que o ícone reduza de tamanho com a flexibilidade da linha */
+            font-weight: 500; /* Define a espessura da fonte como média */
+            width: 18px; /* Define largura fixa de 18px para o ícone */
+        }
+
+        .voz-label { /* Início do bloco de estilo do rótulo/cabeçalho do card de voz */
+            padding: 14px 26px; /* Adiciona preenchimento de 14px vertical e 26px horizontal */
+            font-size: 12px; /* Define tamanho de fonte pequeno de 12px */
+            letter-spacing: 0.5px; /* Adiciona espaçamento entre letras de 0.5px */
+            text-transform: uppercase; /* Altera o texto para letras maiúsculas */
+            color: var(--texto-suave); /* Aplica a cor de texto cinza-suave */
+            background: var(--bg-light); /* Define a cor de fundo bege claro */
+            border-bottom: 1px solid var(--hairline); /* Adiciona borda inferior cinza sutil divisória */
+        }
+
+        /* ---------- Como trabalhamos ---------- */
+        .como { /* Início do bloco de estilo da seção como */
+            padding: 0 0 130px; /* Define espaçamento interno inferior de 130px */
+        }
+
+        .como-head { /* Início do bloco de estilo para o cabeçalho de introdução da seção */
+            max-width: 560px; /* Limita a largura máxima do bloco a 560px */
+            margin-bottom: 60px; /* Adiciona margem externa inferior de 60px para afastar dos passos */
+        }
+
+        .como-head h2 { /* Início do bloco de estilo para o título h2 da introdução */
+            font-size: clamp(26px, 3.6vw, 36px); /* Aplica tamanho de fonte responsiva de 26px a 36px com clamp */
+            font-weight: 300; /* Define espessura da fonte como leve */
+            line-height: 1.3; /* Ajusta a altura da linha para 1.3 */
+        }
+
+        .passos { /* Início do bloco de estilo para a grade de passos */
+            display: grid; /* Habilita o layout de grade */
+            grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas iguais ocupando 1fr cada */
+            gap: 1px; /* Define espaçamento de 1px entre blocos (expondo a cor hairline como divisória) */
+            background: var(--hairline); /* Define a cor hairline como plano de fundo da grade para funcionar como divisória */
+            border: 1px solid var(--hairline); /* Cria borda cinza fina ao redor da grade */
+            border-radius: 16px; /* Arredonda os cantos da grade com raio de 16px */
+            overflow: hidden; /* Oculta qualquer transbordamento dos blocos filhos nos cantos arredondados */
+        }
+
+        @media (max-width:780px) {
+ /* Define estilos alternativos para telas de até 780px */
+            .passos { /* Seletor para os passos em telas menores */
+                grid-template-columns: 1fr; /* Altera a grade para coluna única vertical */
+            }
+        }
+
+        .passo { /* Início do bloco de estilo para cada bloco de passo individual */
+            background: var(--branco); /* Aplica plano de fundo branco sólido */
+            padding: 40px 34px; /* Define preenchimento interno de 40px vertical e 34px horizontal */
+            position: relative; /* Define posicionamento relativo para elementos absolutos internos */
+        }
+
+        .passo.destaque { /* Estilo específico para o passo destacado */
+            background: var(--petroleo); /* Aplica plano de fundo azul petróleo escuro */
+            color: var(--branco); /* Altera a cor padrão do texto interno para branco puro */
+        }
+
+        .passo .num { /* Início da estilização do número identificador do passo */
+            font-size: 13px; /* Define o tamanho da fonte como 13px */
+            color: var(--dourado); /* Aplica a variável de cor dourada de destaque */
+            font-weight: 500; /* Define a espessura da fonte como média */
+            letter-spacing: 1px; /* Adiciona espaçamento entre letras de 1px */
+            margin-bottom: 22px; /* Adiciona margem externa inferior de 22px */
+            display: block; /* Exibe o elemento como bloco para quebras de linha automáticas */
+        }
+
+        .passo h3 { /* Início do bloco de estilo do título h3 do passo */
+            font-size: 20px; /* Define tamanho de fonte de 20px */
+            font-weight: 400; /* Define espessura de fonte como regular */
+            margin-bottom: 12px; /* Adiciona margem externa inferior de 12px */
+        }
+
+        .passo p { /* Início do bloco de estilo para a descrição de cada passo */
+            font-size: 15px; /* Define tamanho de fonte de 15px */
+            color: var(--petroleo-soft); /* Aplica a variável de cor azul petróleo suave */
+        }
+
+        .passo.destaque p { /* Estilo exclusivo para o parágrafo da descrição do passo em destaque */
+            color: var(--petroleo-mist); /* Aplica a variável de cor azul petróleo claro para legibilidade */
+        }
+
+        .passo .selo { /* Início do bloco de estilo para o selo da etapa */
+            display: inline-block; /* Define a exibição como bloco inline */
+            margin-top: 18px; /* Adiciona margem superior de 18px para afastar da descrição */
+            font-size: 12px; /* Define o tamanho da fonte como 12px */
+            letter-spacing: 0.4px; /* Adiciona espaçamento entre letras de 0.4px */
+            color: var(--dourado); /* Aplica a cor dourada de destaque para o texto do selo */
+            border: 1px solid rgba(201, 151, 58, 0.4); /* Cria uma borda fina dourada semitransparente (40% opacidade) */
+            padding: 5px 12px; /* Adiciona preenchimento interno de 5px vertical e 12px horizontal */
+            border-radius: 999px; /* Arredonda totalmente as bordas criando formato de pílula */
+        }
+
+        /* ---------- CTA diagnóstico (espelha o encerramento do PDF) ---------- */
+        .diagnostico { /* Início do bloco de estilo da seção diagnóstico */
+            background: var(--petroleo); /* Aplica plano de fundo azul petróleo escuro */
+            color: var(--branco); /* Altera a cor padrão do texto interno para branco puro */
+            padding: 110px 0 100px; /* Define preenchimento vertical interno de 110px no topo e 100px na base */
+            position: relative; /* Permite posicionamento de elementos internos */
+            overflow: hidden; /* Oculta qualquer transbordamento de elementos */
+        }
+
+        .diagnostico .risco { /* Início da estilização da linha horizontal decorativa */
+            width: 44px; /* Define a largura fixa como 44px */
+            height: 2px; /* Define a altura fixa como 2px */
+            background: var(--dourado); /* Aplica a variável de cor dourada de destaque como fundo */
+            margin-bottom: 26px; /* Adiciona margem externa inferior de 26px */
+        }
+
+        .diag-grid { /* Início do bloco de estilo para o grid da seção diagnóstico */
+            display: grid; /* Habilita o layout de grade */
+            grid-template-columns: 1.05fr 0.95fr; /* Define duas colunas com proporção de 1.05 e 0.95 */
+            gap: 70px; /* Define espaçamento de 70px entre as colunas da grade */
+            align-items: center; /* Alinha os itens verticalmente ao centro no grid */
+        }
+
+        @media (max-width:900px) {
+ /* Define estilos alternativos para telas de até 900px */
+            .diag-grid { /* Seletor para o grid em telas menores */
+                grid-template-columns: 1fr; /* Altera a grade para coluna única vertical */
+                gap: 56px; /* Reduz o espaçamento de elementos no grid para 56px */
+            }
+        }
+
+        .diagnostico h2 { /* Início do bloco de estilo do título h2 da seção diagnóstico */
+            font-size: clamp(28px, 4vw, 42px); /* Define tamanho de fonte responsivo entre 28px e 42px com clamp */
+            font-weight: 300; /* Define a espessura da fonte como leve */
+            line-height: 1.28; /* Ajusta a altura da linha do h2 para 1.28 */
+            max-width: 480px; /* Limita a largura máxima do título em 480px */
+        }
+
+        .diagnostico p.sub { /* Início do bloco de estilo do parágrafo de subtítulo do diagnóstico */
+            font-size: 16px; /* Define o tamanho da fonte como 16px */
+            color: var(--petroleo-mist); /* Aplica a cor azul petróleo claro para menor contraste */
+            margin-top: 18px; /* Adiciona margem externa superior de 18px */
+            max-width: 440px; /* Limita a largura máxima do parágrafo em 440px */
+        }
+
+        .diag-lista { /* Início do bloco de estilo para a lista de itens inclusos */
+            margin-top: 34px; /* Adiciona margem externa superior de 34px para afastar do subtítulo */
+            display: flex; /* Define o contêiner interno como flexbox */
+            flex-direction: column; /* Alinha os itens da lista verticalmente como coluna */
+            gap: 14px; /* Define espaçamento vertical de 14px entre cada item da lista */
+        }
+
+        .diag-lista div { /* Início do bloco de estilo para cada linha de item da lista */
+            display: flex; /* Define o item da lista como flexbox */
+            gap: 12px; /* Adiciona espaçamento horizontal de 12px entre ícone/marcador e texto */
+            font-size: 15px; /* Define o tamanho da fonte como 15px */
+            color: var(--branco); /* Aplica a cor branca para o texto */
+            align-items: flex-start; /* Alinha os itens flex ao topo do bloco */
+        }
+
+        .diag-lista div i { /* Início do bloco de estilo para o marcador/ícone (✓) da lista */
+            flex-shrink: 0; /* Impede que o marcador reduza de tamanho com a flexibilidade da linha */
+            width: 20px; /* Define largura fixa de 20px */
+            height: 20px; /* Define altura fixa de 20px */
+            border-radius: 50%; /* Arredonda totalmente as bordas do marcador criando um círculo */
+            border: 1px solid var(--dourado); /* Cria borda fina dourada ao redor do marcador */
+            color: var(--dourado); /* Aplica a cor dourada para o caractere do marcador */
+            font-style: normal; /* Remove a estilização em itálico padrão da tag <i> */
+            font-size: 11px; /* Define tamanho de fonte interno como 11px */
+            display: flex; /* Habilita flexbox para alinhar o caractere centralizado */
+            align-items: center; /* Alinha o caractere verticalmente ao centro */
+            justify-content: center; /* Alinha o caractere horizontalmente ao centro */
+            margin-top: 2px; /* Adiciona margem externa superior de 2px para alinhamento estético */
+        }
+
+        .form-card { /* Início do bloco de estilo do card do formulário */
+            background: var(--branco); /* Define plano de fundo branco sólido para o card */
+            color: var(--petroleo); /* Aplica a cor azul petróleo escuro para os textos internos do card */
+            border-radius: 18px; /* Arredonda os cantos do card com raio de 18px */
+            padding: 38px 36px; /* Adiciona preenchimento interno de 38px vertical e 36px horizontal */
+        }
+
+        .form-card h3 { /* Início do bloco de estilo para o título h3 do card do formulário */
+            font-size: 19px; /* Define tamanho de fonte de 19px */
+            font-weight: 400; /* Define espessura da fonte como regular */
+            margin-bottom: 6px; /* Adiciona margem externa inferior de 6px */
+        }
+
+        .form-card p.hint { /* Início do bloco de estilo do parágrafo informativo/hint */
+            font-size: 14px; /* Define tamanho de fonte de 14px */
+            color: var(--texto-suave); /* Aplica a variável de cor cinza-suave para o texto secundário */
+            margin-bottom: 26px; /* Adiciona margem externa inferior de 26px */
+        }
+
+        .campo { /* Início do bloco de estilo para o grupo de campo do formulário */
+            margin-bottom: 16px; /* Adiciona margem externa inferior de 16px para separar cada campo */
+        }
+
+        .campo label { /* Início do bloco de estilo para o rótulo de campo */
+            display: block; /* Exibe o rótulo como bloco para ocupar uma linha inteira acima do input */
+            font-size: 12px; /* Define o tamanho da fonte como 12px */
+            letter-spacing: 0.4px; /* Adiciona espaçamento entre as letras de 0.4px */
+            text-transform: uppercase; /* Altera o texto para letras maiúsculas (caixa alta) */
+            color: var(--petroleo-soft); /* Aplica a variável de cor azul petróleo suave */
+            margin-bottom: 7px; /* Adiciona margem externa inferior de 7px para afastar do input */
+        }
+
+        .campo input { /* Início do bloco de estilo do input */
+            width: 100%; /* Define que o input ocupa toda a largura disponível do card */
+            padding: 12px 14px; /* Define o preenchimento interno com 12px vertical e 14px horizontal */
+            border: 1px solid var(--hairline); /* Cria borda sutil cinza usando a variável hairline */
+            border-radius: 9px; /* Arredonda os cantos do input com raio de 9px */
+            font-family: 'Outfit', sans-serif; /* Define a fonte Outfit para os textos do input */
+            font-size: 15px; /* Define tamanho da fonte do texto interno em 15px */
+            font-weight: 300; /* Define a espessura da fonte como leve */
+            color: var(--petroleo); /* Aplica a variável de cor azul petróleo escuro para o texto digitado */
+            background: var(--bg-light); /* Define a cor de fundo bege claro padrão do input */
+        }
+
+        .campo input:focus { /* Estilo do input ao receber foco de digitação */
+            outline: 2px solid var(--dourado); /* Adiciona um contorno sólido de 2px de espessura na cor dourada */
+            outline-offset: 1px; /* Afasta o contorno da borda do input em 1px */
+            border-color: transparent; /* Oculta a borda padrão tornando-a transparente no foco */
+        }
+
+        .form-card .btn { /* Início do bloco de estilo para o botão contido no card */
+            width: 100%; /* Define a largura do botão como 100% (largura total do card) */
+            justify-content: center; /* Centraliza horizontalmente o texto interno do botão */
+            margin-top: 6px; /* Adiciona margem externa superior de 6px */
+        }
+
+        .form-nota { /* Início do bloco de estilo da nota de rodapé do formulário */
+            font-size: 12px; /* Define o tamanho da fonte como 12px */
+            color: var(--texto-suave); /* Aplica a variável de cor cinza-suave */
+            margin-top: 14px; /* Adiciona margem externa superior de 14px */
+            text-align: center; /* Centraliza horizontalmente o texto da nota */
+        }
+
+        .confirmacao { /* Início do bloco de estilo do painel de confirmação de sucesso */
+            display: none; /* Oculta o painel de confirmação por padrão */
+            text-align: center; /* Centraliza horizontalmente todos os textos e blocos internos */
+            padding: 24px 0; /* Adiciona preenchimento interno vertical de 24px */
+        }
+
+        .confirmacao .ok { /* Início da estilização do círculo de sucesso (✓) da confirmação */
+            width: 46px; /* Define largura fixa de 46px */
+            height: 46px; /* Define altura fixa de 46px */
+            border-radius: 50%; /* Arredonda totalmente as bordas criando um círculo perfeito */
+            background: var(--petroleo); /* Aplica a variável de cor azul petróleo escuro como fundo */
+            color: var(--dourado); /* Aplica a variável de cor dourada de destaque para o símbolo */
+            display: flex; /* Habilita flexbox para centralizar o caractere check */
+            align-items: center; /* Alinha o caractere check verticalmente ao centro */
+            justify-content: center; /* Alinha o caractere check horizontalmente ao centro */
+            margin: 0 auto 18px; /* Centraliza o bloco na horizontal e adiciona margem inferior de 18px */
+            font-size: 20px; /* Define tamanho de fonte de 20px para o caractere check */
+        }
+
+        .confirmacao h3 { /* Início do bloco de estilo do título h3 de confirmação */
+            font-size: 19px; /* Define o tamanho da fonte como 19px */
+            font-weight: 400; /* Define a espessura da fonte como regular */
+            margin-bottom: 8px; /* Adiciona margem externa inferior de 8px */
+        }
+
+        .confirmacao p { /* Início do bloco de estilo do parágrafo descritivo de confirmação */
+            font-size: 14px; /* Define tamanho de fonte de 14px */
+            color: var(--texto-suave); /* Aplica a variável de cor cinza-suave */
+        }
+
+        /* ---------- Footer ---------- */
+        footer { /* Início do bloco de estilo do rodapé */
+            padding: 60px 0 44px; /* Define preenchimento vertical interno de 60px no topo e 44px na base */
+        }
+
+        .footer-inner { /* Início do bloco de estilo para o contêiner interno do rodapé */
+            display: flex; /* Exibe os elementos internos usando layout flexbox */
+            justify-content: space-between; /* Distribui os blocos nas extremidades laterais */
+            align-items: center; /* Alinha os blocos verticalmente ao centro */
+            flex-wrap: wrap; /* Permite que os blocos quebrem de linha em telas pequenas */
+            gap: 24px; /* Define espaçamento de 24px entre elementos internos em quebras de linha */
+            padding-top: 34px; /* Adiciona preenchimento interno superior de 34px */
+            border-top: 1px solid var(--hairline); /* Adiciona uma borda superior cinza fina divisória */
+        }
+
+        .footer-brand { /* Início do bloco de estilo do contêiner da marca no rodapé */
+            display: flex; /* Define o contêiner como flexbox */
+            align-items: center; /* Alinha o logotipo e o nome verticalmente ao centro */
+            gap: 11px; /* Adiciona espaçamento de 11px entre o SVG do logo e o texto */
+        }
+
+        .footer-brand span { /* Início da estilização do texto do nome da marca no rodapé */
+            font-size: 15px; /* Define o tamanho da fonte do nome no rodapé como 15px */
+        }
+
+        .footer-loc { /* Início do bloco de estilo para a listagem das localizações no rodapé */
+            font-size: 13px; /* Define o tamanho da fonte das localizações como 13px */
+            color: var(--texto-suave); /* Aplica a variável de cor cinza-suave */
+        }
+
+        .footer-rights { /* Início do bloco de estilo para os direitos autorais */
+            font-size: 12px; /* Define tamanho de fonte pequeno de 12px */
+            color: var(--texto-suave); /* Aplica a variável de cor cinza-suave */
+            width: 100%; /* Faz o bloco ocupar 100% de largura para quebrar de linha e ir para a base */
+            text-align: center; /* Centraliza horizontalmente o texto dos direitos autorais */
+            margin-top: 30px; /* Adiciona margem externa superior de 30px para afastar dos elementos acima */
+        }
