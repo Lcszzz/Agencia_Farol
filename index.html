@@ -12,6 +12,9 @@
 
 <body>
 
+    <div id="smooth-wrapper">
+		<div id="smooth-content">
+
     <header class="nav">
         <div class="container nav-inner">
             <div class="brand">
@@ -42,7 +45,7 @@
                             fill="#123C42" />
                     </g>
                 </svg>
-                <span>Agência Farol</span>
+                <span class="af">Agência Farol</span>
             </div>
             <nav class="nav-links">
                 <a href="#nucleo">O que fazemos</a>
@@ -94,7 +97,8 @@
             </div>
         </div>
         <div class="hero-waves">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none"
+                shape-rendering="auto">
                 <defs>
                     <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
                 </defs>
@@ -246,8 +250,11 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script> <!-- Carrega a biblioteca principal do GSAP para animações -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script> <!-- Carrega o plugin ScrollTrigger do GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script> <!-- Carrega o plugin ScrollSmoother do GSAP para rolagem suave -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script> <!-- Carrega o plugin SplitText do GSAP para manipulação de textos -->
+    <script src="script.js"></script> <!-- Carrega o script principal da aplicação com as interações e efeitos -->
 </body>
 
 </html>
