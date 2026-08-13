@@ -32,3 +32,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => { // Seleciona todos
     });
 });
 
+const heroVideo = document.querySelector('.hero-video-bg'); // Seleciona o elemento do vídeo de fundo no hero
+if (heroVideo) { // Verifica se o elemento de vídeo existe na página
+    heroVideo.addEventListener('suspend', () => { // Adiciona um escutador para o evento de carregamento suspenso
+        heroVideo.play(); // Força a reprodução do vídeo se o navegador pausar o carregamento em segundo plano
+    });
+    heroVideo.addEventListener('stalled', () => { // Adiciona um escutador para quando o carregamento do vídeo travar por falta de dados
+        heroVideo.load(); // Força o recarregamento do vídeo para destravar a reprodução
+        heroVideo.play(); // Inicia a reprodução do vídeo novamente
+    });
+}
+

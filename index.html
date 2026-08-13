@@ -57,9 +57,9 @@
         <div id="smooth-content"> <!-- Container que agrupa o conteúdo rolável da página -->
 
     <section class="hero" id="inicio"> <!-- Seção de destaque principal (Hero) e âncora de início -->
-        <video autoplay loop muted playsinline class="hero-video-bg"> <!-- Vídeo de fundo com reprodução automática, loop e sem som -->
-            <source src="assets/ONDAS-_-MAR-_-OCEANO-_-_Vídeo-Livre-de-Direitos-Autorais_.webm" type="video/webm"> <!-- Origem do arquivo de vídeo no formato WebM -->
-            <source src="assets/ONDAS _ MAR _ OCEANO _ - (Vídeo Livre de Direitos Autorais).mp4" type="video/mp4"> <!-- Origem do arquivo de vídeo em MP4 para compatibilidade -->
+        <video autoplay loop muted playsinline preload="auto" class="hero-video-bg"> <!-- Vídeo de fundo com carregamento automático, loop e reprodução sem som -->
+            <source src="assets/ONDAS _ MAR _ OCEANO _ - (Vídeo Livre de Direitos Autorais).mp4" type="video/mp4"> <!-- Formato MP4 otimizado e mais leve (5MB) para carregamento rápido -->
+            <source src="assets/ONDAS-_-MAR-_-OCEANO-_-_Vídeo-Livre-de-Direitos-Autorais_.webm" type="video/webm"> <!-- Formato WebM de fallback (25MB) -->
         </video>
         <div class="hero-video-overlay"></div> <!-- Película gradiente escura para garantir contraste e leitura do texto -->
         <div class="container hero-inner">
