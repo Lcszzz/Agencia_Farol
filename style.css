@@ -21,19 +21,9 @@
 }
 
 * {
-    /* Seletor universal para redefinir as propriedades de todos os elementos */
-    box-sizing: border-box;
-    /* Configura a propriedade box-sizing como border-box para incluir bordas e preenchimentos na largura */
-    margin: 0;
-    /* Zera a margem de todos os elementos */
-    padding: 0;
-    /* Zera o preenchimento interno de todos os elementos */
-}
-
-html {
-    /* Início do bloco de estilo do elemento html */
-    scroll-behavior: smooth;
-    /* Configura comportamento de rolagem suave para links internos da página */
+    box-sizing: border-box; /* Garante que a largura e altura incluam as bordas e preenchimentos */
+    margin: 0; /* Zera a margem externa padrão de todos os elementos */
+    padding: 0; /* Zera o preenchimento interno padrão de todos os elementos */
 }
 
 body {
@@ -67,6 +57,7 @@ a {
     /* Faz os links herdarem a cor do texto do elemento pai */
     text-decoration: none;
     /* Remove o sublinhado padrão dos links */
+    
 }
 
 .container {

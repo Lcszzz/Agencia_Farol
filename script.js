@@ -11,8 +11,8 @@ document.getElementById('form-diagnostico').addEventListener('submit', function 
 gsap.from(".brand", {
     y: 50,
     opacity: 0,
-    duration: 1.1,
-    delay: 0.3,
+    duration: 2.2,
+    delay: 0.5,
     ease: "power.out",
 });
 
@@ -22,5 +22,13 @@ let smoother = ScrollSmoother.create({ // Cria o ScrollSmoother antes de definir
     smoothTouch: 0.1, // Tempo de suavização de rolagem em dispositivos de toque (0.1 segundos)
     wrapper: "#smooth-wrapper", // Seletor do elemento container externo de embrulho
     content: "#smooth-content", // Seletor do elemento interno que contém o conteúdo
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => { // Seleciona todos os links de ancoragem interna que iniciam com '#'
+    anchor.addEventListener("click", function (e) { // Adiciona um ouvinte de evento para escutar cliques nos links âncora
+        e.preventDefault(); // Previne a navegação âncora padrão e instantânea do navegador
+        let targetId = this.getAttribute("href"); // Obtém o valor do atributo href correspondente ao ID do elemento alvo
+        smoother.scrollTo(targetId, true, "top 80px"); // Rola suavemente até o elemento usando ScrollSmoother com compensação para o cabeçalho fixo
+    });
 });
 

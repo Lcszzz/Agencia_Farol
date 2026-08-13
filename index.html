@@ -12,9 +12,6 @@
 
 <body>
 
-    <div id="smooth-wrapper">
-		<div id="smooth-content">
-
     <header class="nav">
         <div class="container nav-inner">
             <div class="brand">
@@ -55,6 +52,9 @@
             <a href="#diagnostico" class="btn btn-outline-escuro nav-cta">Pedir diagnóstico</a>
         </div>
     </header>
+
+    <div id="smooth-wrapper"> <!-- Container externo estrutural do ScrollSmoother -->
+        <div id="smooth-content"> <!-- Container que agrupa o conteúdo rolável da página -->
 
     <section class="hero">
         <div class="container hero-inner">
@@ -249,6 +249,9 @@
             </div>
         </div>
     </footer>
+
+        </div> <!-- Fechamento do smooth-content contendo todo o conteúdo rolável -->
+    </div> <!-- Fechamento do smooth-wrapper que gerencia o scroll suave -->
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script> <!-- Carrega a biblioteca principal do GSAP para animações -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script> <!-- Carrega o plugin ScrollTrigger do GSAP -->
