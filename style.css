@@ -26,6 +26,10 @@
     padding: 0; /* Zera o preenchimento interno padrão de todos os elementos */
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     /* Início do bloco de estilo do elemento body */
     font-family: 'Outfit', -apple-system, sans-serif;
@@ -311,8 +315,7 @@ header.nav {
     /* Habilita posicionamento relativo para conter o pseudoelemento absoluto de feixe */
     overflow: hidden;
     /* Oculta qualquer transbordamento de elementos (como o feixe de luz giratório) */
-    background: linear-gradient(rgba(18, 60, 66, 0.96), rgba(18, 60, 66, 0.90)), url('assets/ChatGPT.png');
-    /* Aplica sobreposição escura da cor petróleo original do site sobre a imagem de fundo */
+    background: linear-gradient(rgba(18, 60, 66, 0.90), rgba(18, 60, 66, 0.95)), url('assets/water_bg.png'); /* Aplica uma sobreposição gradiente escura sobre a imagem de fundo de água */
     background-size: 105%;
     /* Define o tamanho da imagem de fundo ligeiramente maior para viabilizar a animação de deriva */
     background-position: 50% 50%;
