@@ -21,9 +21,12 @@
 }
 
 * {
-    box-sizing: border-box; /* Garante que a largura e altura incluam as bordas e preenchimentos */
-    margin: 0; /* Zera a margem externa padrão de todos os elementos */
-    padding: 0; /* Zera o preenchimento interno padrão de todos os elementos */
+    box-sizing: border-box;
+    /* Garante que a largura e altura incluam as bordas e preenchimentos */
+    margin: 0;
+    /* Zera a margem externa padrão de todos os elementos */
+    padding: 0;
+    /* Zera o preenchimento interno padrão de todos os elementos */
 }
 
 html {
@@ -61,7 +64,7 @@ a {
     /* Faz os links herdarem a cor do texto do elemento pai */
     text-decoration: none;
     /* Remove o sublinhado padrão dos links */
-    
+
 }
 
 .container {
@@ -310,37 +313,62 @@ header.nav {
 
 /* ---------- Hero ---------- */
 .hero {
-    position: relative; /* Habilita posicionamento relativo para conter os elementos absolutos (vídeo e overlay) */
-    overflow: hidden; /* Oculta qualquer transbordamento de elementos como o feixe de luz giratório */
-    background: linear-gradient(rgba(18, 60, 66, 0.90), rgba(18, 60, 66, 0.95)), url('assets/water_bg.png'); /* Plano de fundo fallback caso o vídeo não seja exibido */
-    background-size: 105%; /* Define o tamanho da imagem de fundo um pouco maior para a animação de deriva */
-    background-position: 50% 50%; /* Define a posição inicial centralizada da imagem de fundo */
-    animation: marDeriva 28s ease-in-out infinite; /* Mantém a animação lenta de deriva para o fallback */
-    color: var(--branco); /* Aplica a variável de cor branca pura como padrão do texto interno */
-    padding: 120px 0 110px; /* Adiciona preenchimento interno vertical no topo e base do hero */
-    isolation: isolate; /* Cria um contexto de isolamento de pilha para as camadas absolutas internas */
+    position: relative;
+    /* Habilita posicionamento relativo para conter os elementos absolutos (vídeo e overlay) */
+    overflow: hidden;
+    /* Oculta qualquer transbordamento de elementos como o feixe de luz giratório */
+    background: linear-gradient(rgba(18, 60, 66, 0.90), rgba(18, 60, 66, 0.95)), url('assets/water_bg.png');
+    /* Plano de fundo fallback caso o vídeo não seja exibido */
+    background-size: 105%;
+    /* Define o tamanho da imagem de fundo um pouco maior para a animação de deriva */
+    background-position: 50% 50%;
+    /* Define a posição inicial centralizada da imagem de fundo */
+    animation: marDeriva 28s ease-in-out infinite;
+    /* Mantém a animação lenta de deriva para o fallback */
+    color: var(--branco);
+    /* Aplica a variável de cor branca pura como padrão do texto interno */
+    padding: 120px 0 110px;
+    /* Adiciona preenchimento interno vertical no topo e base do hero */
+    isolation: isolate;
+    /* Cria um contexto de isolamento de pilha para as camadas absolutas internas */
 }
 
 .hero-video-bg {
-    position: absolute; /* Posiciona o vídeo de forma absoluta cobrindo toda a seção hero */
-    top: 0; /* Alinha o vídeo ao topo do hero */
-    left: 0; /* Alinha o vídeo ao lado esquerdo do hero */
-    width: 100%; /* Ocupa a largura total da seção hero */
-    height: 100%; /* Ocupa a altura total da seção hero */
-    object-fit: cover; /* Faz com que o vídeo seja cortado mantendo a proporção para preencher todo o container */
-    z-index: -2; /* Posiciona o vídeo atrás de todas as outras camadas da seção */
-    pointer-events: none; /* Garante que cliques atravessem o vídeo e atinjam os botões */
+    position: absolute;
+    /* Posiciona o vídeo de forma absoluta cobrindo toda a seção hero */
+    top: 0;
+    /* Alinha o vídeo ao topo do hero */
+    left: 0;
+    /* Alinha o vídeo ao lado esquerdo do hero */
+    width: 100%;
+    /* Ocupa a largura total da seção hero */
+    height: 100%;
+    /* Ocupa a altura total da seção hero */
+    object-fit: cover;
+    /* Faz com que o vídeo seja cortado mantendo a proporção para preencher todo o container */
+    z-index: -2;
+    /* Posiciona o vídeo atrás de todas as outras camadas da seção */
+    pointer-events: none;
+    /* Garante que cliques atravessem o vídeo e atinjam os botões */
 }
 
 .hero-video-overlay {
-    position: absolute; /* Posiciona a película do gradiente de forma absoluta no hero */
-    top: 0; /* Alinha a película ao topo */
-    left: 0; /* Alinha a película ao lado esquerdo */
-    width: 100%; /* Ocupa a largura total */
-    height: 100%; /* Ocupa a altura total */
-    background: linear-gradient(rgba(18, 60, 66, 0.88), rgba(18, 60, 66, 0.94)); /* Gradiente escuro para legibilidade do texto claro */
-    z-index: -1; /* Posiciona acima do vídeo e abaixo do conteúdo de texto */
-    pointer-events: none; /* Garante que cliques atravessem a película */
+    position: absolute;
+    /* Posiciona a película do gradiente de forma absoluta no hero */
+    top: 0;
+    /* Alinha a película ao topo */
+    left: 0;
+    /* Alinha a película ao lado esquerdo */
+    width: 100%;
+    /* Ocupa a largura total */
+    height: 100%;
+    /* Ocupa a altura total */
+    background: linear-gradient(rgba(18, 60, 66, 0.88), rgba(18, 60, 66, 0.94));
+    /* Gradiente escuro para legibilidade do texto claro */
+    z-index: -1;
+    /* Posiciona acima do vídeo e abaixo do conteúdo de texto */
+    pointer-events: none;
+    /* Garante que cliques atravessem a película */
 }
 
 .hero::before {
@@ -810,293 +838,130 @@ header.nav {
     /* Arredonda totalmente as bordas criando formato de pílula */
 }
 
-/* ---------- CTA diagnóstico (espelha o encerramento do PDF) ---------- */
-.diagnostico {
-    /* Início do bloco de estilo da seção diagnóstico */
-    background: var(--petroleo);
-    /* Aplica plano de fundo azul petróleo escuro */
+.whatsapp-btn {
+    /* Elemento container do botão flutuante */
+    position: fixed;
+    /* Mantém o botão fixo na tela durante a rolagem */
+    bottom: 30px;
+    /* Distância de 30px da parte inferior da tela */
+    right: 30px;
+    /* Distância de 30px da lateral direita da tela */
+    width: 60px;
+    /* Define a largura do círculo como 60px */
+    height: 60px;
+    /* Define a altura do círculo como 60px */
+    background-color: #25D366;
+    /* Cor verde oficial do WhatsApp */
     color: var(--branco);
-    /* Altera a cor padrão do texto interno para branco puro */
-    padding: 110px 0 100px;
-    /* Define preenchimento vertical interno de 110px no topo e 100px na base */
-    position: relative;
-    /* Permite posicionamento de elementos internos */
-    overflow: hidden;
-    /* Oculta qualquer transbordamento de elementos */
-}
-
-.diagnostico .risco {
-    /* Início da estilização da linha horizontal decorativa */
-    width: 44px;
-    /* Define a largura fixa como 44px */
-    height: 2px;
-    /* Define a altura fixa como 2px */
-    background: var(--dourado);
-    /* Aplica a variável de cor dourada de destaque como fundo */
-    margin-bottom: 26px;
-    /* Adiciona margem externa inferior de 26px */
-}
-
-.diag-grid {
-    /* Início do bloco de estilo para o grid da seção diagnóstico */
-    display: grid;
-    /* Habilita o layout de grade */
-    grid-template-columns: 1.05fr 0.95fr;
-    /* Define duas colunas com proporção de 1.05 e 0.95 */
-    gap: 70px;
-    /* Define espaçamento de 70px entre as colunas da grade */
+    /* Aplica a variável de cor branca para o ícone */
+    border-radius: 50%;
+    /* Torna o botão um círculo perfeito */
+    display: flex;
+    /* Habilita flexbox para centralizar o ícone */
     align-items: center;
-    /* Alinha os itens verticalmente ao centro no grid */
+    /* Centraliza verticalmente o SVG */
+    justify-content: center;
+    /* Centraliza horizontalmente o SVG */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Adiciona sombra sutil ao redor do botão */
+    z-index: 9999;
+    /* Garante que o botão fique no topo de todos os elementos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    /* Transição suave para hover */
+    text-decoration: none;
+    /* Remove qualquer sublinhado padrão */
 }
 
-@media (max-width:900px) {
+.whatsapp-btn:hover {
+    /* Estilo do botão ao passar o mouse */
+    transform: scale(1.1);
+    /* Aumenta ligeiramente o tamanho do botão */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    /* Intensifica a sombra no hover */
+    background-color: #20ba5a;
+    /* Tom de verde ligeiramente mais escuro */
+}
 
-    /* Define estilos alternativos para telas de até 900px */
-    .diag-grid {
-        /* Seletor para o grid em telas menores */
-        grid-template-columns: 1fr;
-        /* Altera a grade para coluna única vertical */
-        gap: 56px;
-        /* Reduz o espaçamento de elementos no grid para 56px */
+.whatsapp-btn::before {
+    /* Elemento para criar efeito de pulso atrás do botão */
+    content: '';
+    /* Elemento vazio necessário para renderizar o pseudo-elemento */
+    position: absolute;
+    /* Posiciona absolutamente em relação ao botão */
+    width: 100%;
+    /* Ocupa 100% da largura do botão */
+    height: 100%;
+    /* Ocupa 100% da altura do botão */
+    border-radius: 50%;
+    /* Arredonda para formato circular */
+    background-color: #25D366;
+    /* Cor verde oficial do WhatsApp */
+    opacity: 0.5;
+    /* Define opacidade inicial de 50% */
+    z-index: -1;
+    /* Posiciona o pulso atrás do botão principal */
+    animation: whatsapp-pulse 2s infinite;
+    /* Associa a animação de pulso contínuo */
+}
+
+@keyframes whatsapp-pulse {
+
+    /* Declaração dos quadros-chave do pulso */
+    0% {
+        /* Início da animação */
+        transform: scale(1);
+        /* Inicia no tamanho original do botão */
+        opacity: 0.5;
+        /* Opacidade inicial */
+    }
+
+    100% {
+        /* Fim da animação */
+        transform: scale(1.4);
+        /* Expande até 1.4 vezes o tamanho do botão */
+        opacity: 0;
+        /* Desvanece totalmente */
     }
 }
 
-.diagnostico h2 {
-    /* Início do bloco de estilo do título h2 da seção diagnóstico */
-    font-size: clamp(28px, 4vw, 42px);
-    /* Define tamanho de fonte responsivo entre 28px e 42px com clamp */
-    font-weight: 300;
-    /* Define a espessura da fonte como leve */
-    line-height: 1.28;
-    /* Ajusta a altura da linha do h2 para 1.28 */
-    max-width: 480px;
-    /* Limita a largura máxima do título em 480px */
-}
-
-.diagnostico p.sub {
-    /* Início do bloco de estilo do parágrafo de subtítulo do diagnóstico */
-    font-size: 16px;
-    /* Define o tamanho da fonte como 16px */
-    color: var(--petroleo-mist);
-    /* Aplica a cor azul petróleo claro para menor contraste */
-    margin-top: 18px;
-    /* Adiciona margem externa superior de 18px */
-    max-width: 440px;
-    /* Limita a largura máxima do parágrafo em 440px */
-}
-
-.diag-lista {
-    /* Início do bloco de estilo para a lista de itens inclusos */
-    margin-top: 34px;
-    /* Adiciona margem externa superior de 34px para afastar do subtítulo */
-    display: flex;
-    /* Define o contêiner interno como flexbox */
-    flex-direction: column;
-    /* Alinha os itens da lista verticalmente como coluna */
-    gap: 14px;
-    /* Define espaçamento vertical de 14px entre cada item da lista */
-}
-
-.diag-lista div {
-    /* Início do bloco de estilo para cada linha de item da lista */
-    display: flex;
-    /* Define o item da lista como flexbox */
-    gap: 12px;
-    /* Adiciona espaçamento horizontal de 12px entre ícone/marcador e texto */
-    font-size: 15px;
-    /* Define o tamanho da fonte como 15px */
+.whatsapp-tooltip {
+    /* Estilo do balão com a dica textual */
+    position: absolute;
+    /* Posiciona absolutamente em relação ao botão */
+    right: 75px;
+    /* Distância de 75px à esquerda do botão */
+    background-color: var(--petroleo);
+    /* Cor azul petróleo escuro para o fundo */
     color: var(--branco);
-    /* Aplica a cor branca para o texto */
-    align-items: flex-start;
-    /* Alinha os itens flex ao topo do bloco */
-}
-
-.diag-lista div i {
-    /* Início do bloco de estilo para o marcador/ícone (✓) da lista */
-    flex-shrink: 0;
-    /* Impede que o marcador reduza de tamanho com a flexibilidade da linha */
-    width: 20px;
-    /* Define largura fixa de 20px */
-    height: 20px;
-    /* Define altura fixa de 20px */
-    border-radius: 50%;
-    /* Arredonda totalmente as bordas do marcador criando um círculo */
-    border: 1px solid var(--dourado);
-    /* Cria borda fina dourada ao redor do marcador */
-    color: var(--dourado);
-    /* Aplica a cor dourada para o caractere do marcador */
-    font-style: normal;
-    /* Remove a estilização em itálico padrão da tag <i> */
-    font-size: 11px;
-    /* Define tamanho de fonte interno como 11px */
-    display: flex;
-    /* Habilita flexbox para alinhar o caractere centralizado */
-    align-items: center;
-    /* Alinha o caractere verticalmente ao centro */
-    justify-content: center;
-    /* Alinha o caractere horizontalmente ao centro */
-    margin-top: 2px;
-    /* Adiciona margem externa superior de 2px para alinhamento estético */
-}
-
-.form-card {
-    /* Início do bloco de estilo do card do formulário */
-    background: var(--branco);
-    /* Define plano de fundo branco sólido para o card */
-    color: var(--petroleo);
-    /* Aplica a cor azul petróleo escuro para os textos internos do card */
-    border-radius: 18px;
-    /* Arredonda os cantos do card com raio de 18px */
-    padding: 38px 36px;
-    /* Adiciona preenchimento interno de 38px vertical e 36px horizontal */
-}
-
-.form-card h3 {
-    /* Início do bloco de estilo para o título h3 do card do formulário */
-    font-size: 19px;
-    /* Define tamanho de fonte de 19px */
-    font-weight: 400;
-    /* Define espessura da fonte como regular */
-    margin-bottom: 6px;
-    /* Adiciona margem externa inferior de 6px */
-}
-
-.form-card p.hint {
-    /* Início do bloco de estilo do parágrafo informativo/hint */
+    /* Texto na cor branca */
+    padding: 8px 14px;
+    /* Preenchimento interno para a caixa de texto */
+    border-radius: 8px;
+    /* Cantos arredondados de 8px */
     font-size: 14px;
-    /* Define tamanho de fonte de 14px */
-    color: var(--texto-suave);
-    /* Aplica a variável de cor cinza-suave para o texto secundário */
-    margin-bottom: 26px;
-    /* Adiciona margem externa inferior de 26px */
+    /* Define tamanho de fonte legível de 14px */
+    font-weight: 500;
+    /* Define a espessura da fonte como média */
+    white-space: nowrap;
+    /* Impede a quebra de linha do texto da dica */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Adiciona sombra sutil ao balão */
+    opacity: 0;
+    /* Oculta a dica por padrão */
+    pointer-events: none;
+    /* Evita que a dica interfira em cliques */
+    transform: translateX(10px);
+    /* Desloca ligeiramente para a direita */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Transições suaves de exibição */
 }
 
-.campo {
-    /* Início do bloco de estilo para o grupo de campo do formulário */
-    margin-bottom: 16px;
-    /* Adiciona margem externa inferior de 16px para separar cada campo */
-}
-
-.campo label {
-    /* Início do bloco de estilo para o rótulo de campo */
-    display: block;
-    /* Exibe o rótulo como bloco para ocupar uma linha inteira acima do input */
-    font-size: 12px;
-    /* Define o tamanho da fonte como 12px */
-    letter-spacing: 0.4px;
-    /* Adiciona espaçamento entre as letras de 0.4px */
-    text-transform: uppercase;
-    /* Altera o texto para letras maiúsculas (caixa alta) */
-    color: var(--petroleo-soft);
-    /* Aplica a variável de cor azul petróleo suave */
-    margin-bottom: 7px;
-    /* Adiciona margem externa inferior de 7px para afastar do input */
-}
-
-.campo input {
-    /* Início do bloco de estilo do input */
-    width: 100%;
-    /* Define que o input ocupa toda a largura disponível do card */
-    padding: 12px 14px;
-    /* Define o preenchimento interno com 12px vertical e 14px horizontal */
-    border: 1px solid var(--hairline);
-    /* Cria borda sutil cinza usando a variável hairline */
-    border-radius: 9px;
-    /* Arredonda os cantos do input com raio de 9px */
-    font-family: 'Outfit', sans-serif;
-    /* Define a fonte Outfit para os textos do input */
-    font-size: 15px;
-    /* Define tamanho da fonte do texto interno em 15px */
-    font-weight: 300;
-    /* Define a espessura da fonte como leve */
-    color: var(--petroleo);
-    /* Aplica a variável de cor azul petróleo escuro para o texto digitado */
-    background: var(--bg-light);
-    /* Define a cor de fundo bege claro padrão do input */
-}
-
-.campo input:focus {
-    /* Estilo do input ao receber foco de digitação */
-    outline: 2px solid var(--dourado);
-    /* Adiciona um contorno sólido de 2px de espessura na cor dourada */
-    outline-offset: 1px;
-    /* Afasta o contorno da borda do input em 1px */
-    border-color: transparent;
-    /* Oculta a borda padrão tornando-a transparente no foco */
-}
-
-.form-card .btn {
-    /* Início do bloco de estilo para o botão contido no card */
-    width: 100%;
-    /* Define a largura do botão como 100% (largura total do card) */
-    justify-content: center;
-    /* Centraliza horizontalmente o texto interno do botão */
-    margin-top: 6px;
-    /* Adiciona margem externa superior de 6px */
-}
-
-.form-nota {
-    /* Início do bloco de estilo da nota de rodapé do formulário */
-    font-size: 12px;
-    /* Define o tamanho da fonte como 12px */
-    color: var(--texto-suave);
-    /* Aplica a variável de cor cinza-suave */
-    margin-top: 14px;
-    /* Adiciona margem externa superior de 14px */
-    text-align: center;
-    /* Centraliza horizontalmente o texto da nota */
-}
-
-.confirmacao {
-    /* Início do bloco de estilo do painel de confirmação de sucesso */
-    display: none;
-    /* Oculta o painel de confirmação por padrão */
-    text-align: center;
-    /* Centraliza horizontalmente todos os textos e blocos internos */
-    padding: 24px 0;
-    /* Adiciona preenchimento interno vertical de 24px */
-}
-
-.confirmacao .ok {
-    /* Início da estilização do círculo de sucesso (✓) da confirmação */
-    width: 46px;
-    /* Define largura fixa de 46px */
-    height: 46px;
-    /* Define altura fixa de 46px */
-    border-radius: 50%;
-    /* Arredonda totalmente as bordas criando um círculo perfeito */
-    background: var(--petroleo);
-    /* Aplica a variável de cor azul petróleo escuro como fundo */
-    color: var(--dourado);
-    /* Aplica a variável de cor dourada de destaque para o símbolo */
-    display: flex;
-    /* Habilita flexbox para centralizar o caractere check */
-    align-items: center;
-    /* Alinha o caractere check verticalmente ao centro */
-    justify-content: center;
-    /* Alinha o caractere check horizontalmente ao centro */
-    margin: 0 auto 18px;
-    /* Centraliza o bloco na horizontal e adiciona margem inferior de 18px */
-    font-size: 20px;
-    /* Define tamanho de fonte de 20px para o caractere check */
-}
-
-.confirmacao h3 {
-    /* Início do bloco de estilo do título h3 de confirmação */
-    font-size: 19px;
-    /* Define o tamanho da fonte como 19px */
-    font-weight: 400;
-    /* Define a espessura da fonte como regular */
-    margin-bottom: 8px;
-    /* Adiciona margem externa inferior de 8px */
-}
-
-.confirmacao p {
-    /* Início do bloco de estilo do parágrafo descritivo de confirmação */
-    font-size: 14px;
-    /* Define tamanho de fonte de 14px */
-    color: var(--texto-suave);
-    /* Aplica a variável de cor cinza-suave */
+.whatsapp-btn:hover .whatsapp-tooltip {
+    /* Exibição da dica no hover do botão */
+    opacity: 1;
+    /* Torna o balão visível */
+    transform: translateX(0);
+    /* Retorna à posição original */
 }
 
 /* ---------- Footer ---------- */
@@ -1167,8 +1032,8 @@ footer {
     /* Contêiner das ondas na base do hero */
     position: absolute;
     /* Posiciona o bloco de forma absoluta em relação ao hero */
-    bottom: 0;
-    /* Alinha o contêiner no limite inferior do hero */
+    bottom: -2px;
+    /* Desloca o contêiner 2px abaixo para cobrir frestas de renderização subpixel */
     left: 0;
     /* Alinha o contêiner no limite esquerdo */
     width: 100%;
