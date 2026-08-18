@@ -178,7 +178,7 @@ a {
 /* ---------- Header ---------- */
 header.nav {
     /* Início do bloco de estilo do cabeçalho com classe nav */
-    position: sticky;
+    position: fixed;
     /* Fixa o cabeçalho no topo da tela durante a rolagem */
     top: 0;
     /* Define a posição de fixação no topo absoluto */
@@ -190,6 +190,9 @@ header.nav {
     /* Aplica efeito de desfoque de fundo no conteúdo sob o cabeçalho */
     border-bottom: 1px solid var(--hairline);
     /* Adiciona uma borda inferior cinza sutil divisória */
+    width: 100vw;
+
+
 }
 
 
